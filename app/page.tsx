@@ -1,3 +1,4 @@
+import BusinessContent from "./components/hero/BusinessContent";
 import BusinessIntro from "./components/hero/BusinessIntro";
 import NetworkSection from "./components/hero/NetworkSection";
 
@@ -20,12 +21,7 @@ export default function Home() {
 
       <NetworkSection />
 
-      <section
-        id="contact"
-        className="relative z-20 flex h-screen w-full items-center justify-center bg-gray-50"
-      >
-        <h2 className="text-3xl font-bold text-gray-900">Contact Us 영역</h2>
-      </section>
+      <BusinessContent />
     </div>
   );
 }
