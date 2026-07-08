@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import SmoothScroll from "./components/SmoothScroll";
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         <SmoothScroll />
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
