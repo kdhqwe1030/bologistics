@@ -150,14 +150,20 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    let mounted = true;
+
     const handleScroll = () => {
+      if (!mounted) return;
       setScrolled(window.scrollY > 50);
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      mounted = false;
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const isLight = scrolled || isOpen;
