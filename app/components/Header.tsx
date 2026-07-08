@@ -1,75 +1,121 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const aboutUsMenu = [
-  { ko: "CEO 인사말", en: "CEO Greeting" },
-  { ko: "비전 및 핵심가치", en: "Vision & Value" },
-  { ko: "연혁", en: "History" },
-  { ko: "글로벌 네트워크", en: "Global Network" },
+// 메뉴 데이터를 배열로 관리하여 상단 메뉴와 하위 메뉴의 정렬을 동기화하기 쉽게 구성합니다.
+const MENUS = [
+  {
+    title: "About Us",
+    items: ["CEO 인사말", "비전 및 핵심가치", "연혁", "글로벌 네트워크"],
+  },
+  {
+    title: "Business",
+    items: ["항공 운송", "해상 운송", "특수/신선 화물", "통관 및 창고 보관"],
+  },
 ];
-
-const businessMenu = [
-  { ko: "항공 운송", en: "Air Transport" },
-  { ko: "해상 운송", en: "Marine Transport" },
-  { ko: "특수/신선 화물", en: "Special & Cold Chain" },
-  { ko: "통관 및 창고 보관", en: "Customs & Warehousing" },
-];
-
-type MenuKey = "about" | "business";
-
-const menuItems: Record<MenuKey, { ko: string; en: string }[]> = {
-  about: aboutUsMenu,
-  business: businessMenu,
-};
 
 export default function Header() {
-  const [openMenu, setOpenMenu] = useState<MenuKey | null>(null);
-  const activeItems = openMenu ? menuItems[openMenu] : null;
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // 스크롤 반응 기준을 50px 정도로 주면 사용자 경험상 더 빠르고 자연스럽습니다.
+      setScrolled(window.scrollY > 50);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // 스크롤을 내렸거나, 마우스를 헤더에 올렸을 때(hover) 밝은 테마로 변경
+  const isLight = scrolled || isOpen;
 
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50"
-      onMouseLeave={() => setOpenMenu(null)}
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        isLight
+          ? "border-b border-gray-200 bg-white shadow-sm"
+          : "border-b border-transparent bg-transparent"
+      }`}
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-12">
-        <a href="/" className="text-2xl font-bold tracking-wide text-white">
-          비오로지스틱스
+      {/* 1. 상단 메인 헤더 영역 */}
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 relative z-10 lg:px-12">
+        {/* 로고 영역 */}
+        <a href="/" className="flex items-center gap-1">
+          <Image
+            src="/투명로고.png"
+            alt="비오로지스틱스 로고"
+            width={40}
+            height={40}
+            className="h-12 w-12 object-contain"
+          />
+          <span
+            className={`text-2xl font-bold tracking-wide transition-colors duration-300 ${
+              isLight ? "text-gray-900" : "text-white"
+            }`}
+          >
+            비오로지스틱스
+          </span>
         </a>
-        <nav className="flex items-center gap-32">
-          <button
-            className="text-xl font-bold tracking-wide text-white"
-            onMouseEnter={() => setOpenMenu("about")}
-          >
-            About Us
-          </button>
-          <button
-            className="text-xl font-bold tracking-wide text-white"
-            onMouseEnter={() => setOpenMenu("business")}
-          >
-            Business
-          </button>
+
+        {/* 1뎁스 메뉴 영역 */}
+        <nav className="flex items-center gap-24">
+          {MENUS.map((menu) => (
+            // w-32 속성으로 고정 너비를 주어 하위 메뉴와 중앙 정렬을 맞춥니다.
+            <div key={menu.title} className="w-32 text-center">
+              <button
+                className={`text-xl font-bold tracking-wide transition-colors duration-300 ${
+                  isLight ? "text-gray-900 hover:text-[#1688CA]" : "text-white"
+                }`}
+              >
+                {menu.title}
+              </button>
+            </div>
+          ))}
         </nav>
       </div>
 
+      {/* 2. 풀-위드(Full-width) 드롭다운 영역 */}
       <div
-        className={`overflow-hidden bg-white/95 shadow-lg backdrop-blur-sm transition-all duration-300 ease-out ${
-          openMenu ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        className={`absolute left-0 top-full w-full bg-white overflow-hidden transition-all duration-300 ease-in-out border-t border-gray-100 ${
+          isOpen
+            ? "max-h-96 opacity-100 visible border-b border-gray-200 shadow-md"
+            : "max-h-0 opacity-0 invisible border-t-transparent border-b-transparent"
         }`}
       >
-        <div className="mx-auto grid max-w-7xl grid-cols-4 gap-4 px-6 py-8 lg:px-12">
-          {activeItems?.map((item) => (
-            <a
-              key={item.ko}
-              href="#"
-              className="flex flex-col gap-1 rounded-md px-4 py-3 transition-colors hover:bg-black/5"
-            >
-              <span className="text-base font-medium text-gray-900">
-                {item.ko}
-              </span>
-              <span className="text-xs text-gray-500">{item.en}</span>
-            </a>
-          ))}
+        <div className="mx-auto flex max-w-7xl items-start justify-between px-6 py-8 lg:px-12">
+          {/* 상단 레이아웃과 동일한 비례를 맞추기 위한 투명 로고 스페이서 */}
+          <div className="flex items-center gap-3 invisible pointer-events-none">
+            <div className="h-10 w-10"></div>
+            <span className="text-2xl font-bold tracking-wide">
+              비오로지스틱스
+            </span>
+          </div>
+
+          {/* 2뎁스 서브 메뉴 영역 */}
+          <nav className="flex items-start gap-24">
+            {MENUS.map((menu) => (
+              <div
+                key={`${menu.title}-sub`}
+                // 상단의 1뎁스 div와 똑같이 w-32를 주어 텍스트가 정확히 수직 정렬되게 합니다.
+                className="flex w-32 flex-col items-center gap-4"
+              >
+                {menu.items.map((item) => (
+                  <a
+                    key={item}
+                    href="#"
+                    className="whitespace-nowrap text-base font-medium text-gray-600 transition-colors hover:text-[#1688CA]"
+                  >
+                    {item}
+                  </a>
+                ))}
+              </div>
+            ))}
+          </nav>
         </div>
       </div>
     </header>
