@@ -36,8 +36,8 @@ export default function Footer() {
               </span>
             </a>
 
-            <div className="flex flex-col gap-2 leading-7">
-              <div className="flex flex-wrap gap-x-4 gap-y-1">
+            <div className="flex flex-col gap-1 leading-7">
+              <div className="flex flex-wrap gap-x-4 ">
                 <span className="font-medium text-gray-200">
                   비오로지스틱스(주)
                 </span>
@@ -100,17 +100,8 @@ export default function Footer() {
         </div>
 
         {/* 하단 */}
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-6 flex flex-col gap-4 border-t border-white/10 pt-3 text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 비오로지스틱스. All rights reserved.</p>
-
-          <div className="flex gap-5">
-            <a href="#" className="transition-colors hover:text-white">
-              개인정보처리방침
-            </a>
-            <a href="#" className="transition-colors hover:text-white">
-              이용약관
-            </a>
-          </div>
         </div>
       </div>
     </footer>
