@@ -12,21 +12,30 @@ const sizeStyles: Record<
   xl: { text: "text-xl", icon: "h-6 w-6", gap: "gap-2.5", padding: "px-7 py-3.5" },
 };
 
+type ArrowButtonVariant = "light" | "dark";
+
+const variantStyles: Record<ArrowButtonVariant, string> = {
+  light: "border-white/30 text-white/85",
+  dark: "border-gray-300 text-gray-800",
+};
+
 export default function ArrowButton({
   href,
   children,
   size = "base",
+  variant = "light",
 }: {
   href: string;
   children: ReactNode;
   size?: ArrowButtonSize;
+  variant?: ArrowButtonVariant;
 }) {
   const { text, icon, gap, padding } = sizeStyles[size];
 
   return (
     <a
       href={href}
-      className={`group relative inline-flex items-center overflow-hidden rounded-sm border border-white/30 text-white/85 hover:border-[#1688CA] ${gap} ${padding}`}
+      className={`group relative inline-flex items-center overflow-hidden rounded-sm border hover:border-[#1688CA] ${variantStyles[variant]} ${gap} ${padding}`}
       style={{ transition: "border-color 0.25s" }}
     >
       <span
@@ -36,9 +45,11 @@ export default function ArrowButton({
           transition: "translate 0.6s cubic-bezier(0.4,0,0.2,1)",
         }}
       />
-      <span className={`relative ${text}`}>{children}</span>
+      <span className={`relative transition-colors duration-300 group-hover:text-white ${text}`}>
+        {children}
+      </span>
       <svg
-        className={`relative group-hover:translate-x-1.5 ${icon}`}
+        className={`relative transition-colors duration-300 group-hover:translate-x-1.5 group-hover:text-white ${icon}`}
         style={{
           transition: "translate 0.4s cubic-bezier(0.34,1.56,0.64,1)",
         }}
