@@ -85,7 +85,7 @@ export default function LogoMarquee() {
       <LogoRow airlines={rowBottomAirlines} reverse />
 
       <div className="flex justify-center pb-2 pt-4">
-        <ArrowButton href="/network" size="xl">
+        <ArrowButton href="/about" size="xl">
           자세히 보기
         </ArrowButton>
       </div>
