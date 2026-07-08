@@ -22,9 +22,9 @@ export default function Home() {
 
       <section
         id="contact"
-        className="flex h-screen w-full items-center justify-center bg-gray-50"
+        className="relative z-20 flex h-screen w-full items-center justify-center bg-gray-50"
       >
-        <h2 className="text-3xl font-bold text-gray-900">business 영역</h2>
+        <h2 className="text-3xl font-bold text-gray-900">Contact Us 영역</h2>
       </section>
     </div>
   );

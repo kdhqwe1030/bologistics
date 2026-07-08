@@ -16,7 +16,7 @@ const businessMenu = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#181C25] text-sm text-gray-400">
+    <footer className="relative z-30 bg-[#181C25] text-sm text-gray-400">
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12">
         <div className="flex flex-col justify-between gap-14 lg:flex-row">
           {/* 회사 정보 */}

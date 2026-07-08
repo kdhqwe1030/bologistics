@@ -13,7 +13,7 @@ export default function NetworkSection() {
   return (
     <section
       id="network"
-      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden py-24"
+      className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center overflow-hidden py-24"
     >
       {/* 배경 이미지 */}
       <Image

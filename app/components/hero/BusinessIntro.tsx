@@ -7,7 +7,7 @@ export default function BusinessIntro() {
   return (
     <section
       id="business"
-      className="flex min-h-screen w-full items-stretch bg-white"
+      className="sticky top-0 z-0 flex h-screen w-full items-stretch bg-white"
     >
       <div className="grid w-full grid-cols-1 lg:grid-cols-[42%_58%]">
         <div className="flex flex-col justify-center py-16 pl-6 pr-6 lg:py-24 lg:pl-48 lg:pr-4">
