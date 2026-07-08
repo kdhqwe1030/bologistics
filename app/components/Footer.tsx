@@ -24,7 +24,7 @@ export default function Footer() {
             <a href="/" className="flex w-fit items-center gap-2">
               <div className="relative h-12 w-12">
                 <Image
-                  src="/투명로고.png"
+                  src="/투명로고.webp"
                   alt="비오로지스틱스 로고"
                   fill
                   className="object-contain"

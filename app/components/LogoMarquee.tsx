@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ArrowButton from "./ArrowButton";
 
 const rowTopAirlines = [
   "대한항공",
@@ -46,7 +45,7 @@ function LogoRow({
               className="flex h-28 w-64 shrink-0 items-center justify-center rounded-md bg-white p-6 "
             >
               <Image
-                src={`/항공사/${name}.png`}
+                src={`/항공사/${name}.webp`}
                 alt={name}
                 width={224}
                 height={96}
@@ -63,7 +62,7 @@ function LogoRow({
               className="flex h-28 w-64 shrink-0 items-center justify-center rounded-md bg-white p-6 shadow-xs"
             >
               <Image
-                src={`/항공사/${name}.png`}
+                src={`/항공사/${name}.webp`}
                 alt=""
                 width={224}
                 height={96}
@@ -83,12 +82,6 @@ export default function LogoMarquee() {
     <div className="flex w-full flex-col gap-6">
       <LogoRow airlines={rowTopAirlines} />
       <LogoRow airlines={rowBottomAirlines} reverse />
-
-      <div className="flex justify-center pb-2 pt-4">
-        <ArrowButton href="/about" size="xl">
-          자세히 보기
-        </ArrowButton>
-      </div>
     </div>
   );
 }
