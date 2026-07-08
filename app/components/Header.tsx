@@ -107,7 +107,7 @@ export default function Header() {
           </div>
 
           {/* 2뎁스 서브 메뉴 - 상단 메뉴와 동일한 중앙 정렬 */}
-          <nav className="flex items-start justify-center gap-20 py-4">
+          <nav className="flex items-start justify-center gap-16 py-4">
             {MENUS.map((menu) => (
               <div
                 key={`${menu.title}-sub`}
