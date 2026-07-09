@@ -4,32 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { HEADER_OFFSET } from "../lib/scroll";
-
-const MENUS = [
-  {
-    title: "About Us",
-    items: [
-      { label: "CEO 인사말", href: "/about#ceo" },
-      { label: "비전 및 핵심가치", href: "/about#vision" },
-      { label: "연혁", href: "/about#history" },
-      { label: "글로벌 네트워크", href: "/about#network" },
-    ],
-  },
-  {
-    title: "Business",
-    items: [
-      { label: "항공 운송", href: "/business/air" },
-      { label: "해상 운송", href: "/business/sea" },
-      { label: "내륙 운송", href: "/business/inland" },
-      { label: "통관 및 창고 보관", href: "/business/warehouse" },
-    ],
-  },
-  {
-    title: "Support",
-    items: [{ label: "지점 안내", href: "#" }],
-  },
-];
+import { useHashLinkClick } from "../hooks/useHashLinkClick";
+import { MENUS } from "../lib/nav";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,29 +31,14 @@ export default function Header() {
 
   const isLight = pathname !== "/" || scrolled || isOpen;
 
-  const handleItemClick =
-    (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleHashClick = useHashLinkClick();
+  const handleItemClick = (href: string) => {
+    const onClick = handleHashClick(href);
+    return (e: React.MouseEvent<HTMLAnchorElement>) => {
       setIsOpen(false);
-
-      const [path, hash] = href.split("#");
-      if (!hash) return;
-
-      const isSamePage = path === pathname;
-      if (!isSamePage) return;
-
-      e.preventDefault();
-      const target = document.getElementById(hash);
-      if (!target) return;
-
-      // 해시 누적(/about#ceo#network) 방지 — 항상 단일 해시로 유지
-      history.replaceState(null, "", `${path}#${hash}`);
-
-      if (window.__lenis) {
-        window.__lenis.scrollTo(target, { offset: -HEADER_OFFSET });
-      } else {
-        target.scrollIntoView({ behavior: "smooth" });
-      }
+      onClick(e);
     };
+  };
 
   return (
     <header

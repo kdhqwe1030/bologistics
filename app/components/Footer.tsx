@@ -1,20 +1,13 @@
+"use client";
+
 import Image from "next/image";
-
-const aboutUsMenu = [
-  "CEO 인사말",
-  "비전 및 핵심가치",
-  "연혁",
-  "글로벌 네트워크",
-];
-
-const businessMenu = [
-  "항공 운송",
-  "해상 운송",
-  "특수/신선 화물",
-  "통관 및 창고 보관",
-];
+import Link from "next/link";
+import { useHashLinkClick } from "../hooks/useHashLinkClick";
+import { MENUS } from "../lib/nav";
 
 export default function Footer() {
+  const handleHashClick = useHashLinkClick();
+
   return (
     <footer className="relative z-30 bg-[#181C25] text-sm text-gray-400">
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12">
@@ -68,34 +61,28 @@ export default function Footer() {
           </div>
 
           {/* 사이트맵 */}
-          <nav className="grid grid-cols-2 gap-x-14 gap-y-10 sm:gap-x-24 lg:min-w-[440px]">
-            <div>
-              <h3 className="mb-5 text-base font-bold text-white">About Us</h3>
+          <nav className="grid grid-cols-2 gap-x-14 gap-y-10 sm:grid-cols-3 sm:gap-x-16 lg:min-w-[560px]">
+            {MENUS.map((menu) => (
+              <div key={menu.title}>
+                <h3 className="mb-5 text-base font-bold text-white">
+                  {menu.title}
+                </h3>
 
-              <ul className="flex flex-col gap-3.5">
-                {aboutUsMenu.map((label) => (
-                  <li key={label}>
-                    <a href="#" className="transition-colors hover:text-white">
-                      {label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="mb-5 text-base font-bold text-white">Business</h3>
-
-              <ul className="flex flex-col gap-3.5">
-                {businessMenu.map((label) => (
-                  <li key={label}>
-                    <a href="#" className="transition-colors hover:text-white">
-                      {label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                <ul className="flex flex-col gap-3.5">
+                  {menu.items.map((item) => (
+                    <li key={item.label}>
+                      <Link
+                        href={item.href}
+                        onClick={handleHashClick(item.href)}
+                        className="transition-colors hover:text-white"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </nav>
         </div>
 
