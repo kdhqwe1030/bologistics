@@ -20,6 +20,7 @@ type Rect = { left: number; top: number; width: number; height: number };
 
 export default function CeoHero() {
   const pinRef = useRef<HTMLDivElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
   const photoRef = useRef<HTMLDivElement>(null);
   const [growProgress, setGrowProgress] = useState(0);
   const [swapProgress, setSwapProgress] = useState(0);
@@ -28,14 +29,18 @@ export default function CeoHero() {
   useEffect(() => {
     const measure = () => {
       const box = photoRef.current;
-      if (!box) return;
+      const frame = stickyRef.current;
+      if (!box || !frame) return;
       const prevTransform = box.style.transform;
       box.style.transform = "none";
       const rect = box.getBoundingClientRect();
+      const frameRect = frame.getBoundingClientRect();
       box.style.transform = prevTransform;
+      // 고정(sticky) 프레임 기준 "상대 오프셋"으로 저장 → 현재 스크롤 위치와 무관하게 항상 동일한 값.
+      // 활성 구간에서는 프레임이 top:0에 고정되므로 이 오프셋이 곧 뷰포트 좌표가 된다.
       setBase({
-        left: rect.left,
-        top: rect.top,
+        left: rect.left - frameRect.left,
+        top: rect.top - frameRect.top,
         width: rect.width,
         height: rect.height,
       });
@@ -107,7 +112,10 @@ export default function CeoHero() {
         style={{ top: "100vh", scrollMarginTop: "-80px" }}
       />
 
-      <div className="sticky top-0 flex h-screen w-full items-center overflow-hidden bg-white pt-16">
+      <div
+        ref={stickyRef}
+        className="sticky top-0 flex h-screen w-full items-center overflow-hidden bg-white pt-16"
+      >
         <div className="grid w-full grid-cols-1 lg:grid-cols-[48%_52%]">
           <div
             className="flex flex-col justify-center py-16 pl-6 pr-6 lg:py-8 lg:pl-48 lg:pr-4"
