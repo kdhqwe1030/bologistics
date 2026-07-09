@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import FadeIn from "./FadeIn";
+import FadeIn from "../FadeIn";
+import Stagger from "../Stagger";
 
 const PHOTO_BOX_CLASS = "h-[280px] w-[380px] lg:h-[390px] lg:w-[540px]";
 
@@ -122,30 +123,40 @@ export default function CeoHero() {
             style={{ opacity: 1 - growProgress }}
           >
             <div className="max-w-xl">
-              <span className="mb-4 inline-block text-sm font-semibold tracking-[0.3em] text-[#1688CA]">
-                CEO GREETING
-              </span>
-              <h2 className="mb-8 text-3xl font-bold text-gray-900 md:text-4xl">
-                대표 인사말
-              </h2>
+              <Stagger step={0.15}>
+                <FadeIn direction="left">
+                  <span className="mb-4 inline-block text-sm font-semibold tracking-[0.3em] text-[#1688CA]">
+                    CEO GREETING
+                  </span>
+                  <h2 className="mb-8 text-3xl font-bold text-gray-900 md:text-4xl">
+                    대표 인사말
+                  </h2>
 
-              <div className="mb-8 h-0.5 w-16 bg-[#1688CA]" />
+                  <div className="mb-8 h-0.5 w-16 bg-[#1688CA]" />
+                </FadeIn>
 
-              <p className="mb-6 text-base leading-loose text-gray-600">
-                비오로지스틱스는 국내외 항공운송서비스뿐만 아니라 물류단계별
-                연계서비스에 이르기까지 고객이 필요로 하는 맞춤형 종합
-                물류솔루션을 제공하는 종합물류회사입니다.
-              </p>
+                <FadeIn direction="left">
+                  <p className="mb-6 text-base leading-loose text-gray-600">
+                    비오로지스틱스는 국내외 항공운송서비스뿐만 아니라
+                    물류단계별 연계서비스에 이르기까지 고객이 필요로 하는
+                    맞춤형 종합 물류솔루션을 제공하는 종합물류회사입니다.
+                  </p>
 
-              <p className="text-base leading-loose text-gray-600">
-                주요 항공사들과의 전략적 제휴를 통해 시장에서 고객사가 최적의
-                물류활동을 구현할 수 합리적 운임과 연중 안정적인 화물운송
-                확보하여 최선의 서비스를 제공하여 드릴 것입니다.
-              </p>
+                  <p className="text-base leading-loose text-gray-600">
+                    주요 항공사들과의 전략적 제휴를 통해 시장에서 고객사가
+                    최적의 물류활동을 구현할 수 합리적 운임과 연중 안정적인
+                    화물운송 확보하여 최선의 서비스를 제공하여 드릴
+                    것입니다.
+                  </p>
+                </FadeIn>
+              </Stagger>
             </div>
           </div>
 
-          <div className="flex items-center justify-center py-12 lg:justify-start lg:py-16 lg:pl-20">
+          <FadeIn
+            direction="none"
+            className="flex items-center justify-center py-12 lg:justify-start lg:py-16 lg:pl-20"
+          >
             <div
               ref={photoRef}
               className={`relative overflow-hidden shadow-lg ${PHOTO_BOX_CLASS}`}
@@ -177,9 +188,15 @@ export default function CeoHero() {
                 className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center text-white"
                 style={{ opacity: overlayOpacity }}
               >
-                <span className=" mb-6 font-semibold  text-[#4FB6EE]">
-                  Beginning and Over
-                </span>
+                {growProgress > 0.85 && (
+                  <FadeIn
+                    direction="none"
+                    duration={1.2}
+                    className="mb-6 block font-semibold text-[#4FB6EE]"
+                  >
+                    Beginning and Over
+                  </FadeIn>
+                )}
                 {growProgress > 0.92 && (
                   <FadeIn
                     key={showSecondMessage ? "b" : "a"}
@@ -201,7 +218,7 @@ export default function CeoHero() {
                 )}
               </div>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </div>
