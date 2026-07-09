@@ -1,6 +1,9 @@
 import { HandHelping, Share2, Timer } from "lucide-react";
 import BackgroundVideo from "../components/BackgroundVideo";
 import CeoHero from "../components/CeoHero";
+import { BadgeCheck, Building2, Trophy } from "lucide-react";
+import Image from "next/image";
+
 const philosophyItems = [
   {
     icon: Share2,
@@ -19,6 +22,50 @@ const philosophyItems = [
     title: "시간 = 신뢰",
     description:
       "비오로지스틱스는 어떠한 순간에도 시간약속을 준수하며 신뢰를 잃지 않습니다",
+  },
+];
+const timeline = [
+  {
+    year: "2022",
+    entries: [
+      {
+        month: "07",
+        lines: ["대한항공 대리점 계약", "동남아행 물량 약정 시행"],
+      },
+      { month: "07", lines: ["기업부설연구소 개설", "(인정번호 2022113315)"] },
+    ],
+  },
+  {
+    year: "2021",
+    entries: [],
+  },
+  {
+    year: "2020",
+    entries: [
+      { month: "01", lines: ["특송업체 인증", "(인천세관장)"] },
+      { month: "04", lines: ["벤처기업 인증등록"] },
+      { month: "12", lines: ["LA향 B747화물기", "Half Charter 운영(26편)"] },
+    ],
+  },
+  {
+    year: "2019",
+    entries: [
+      { month: "05", lines: ["신규 사무실 이전", "(서울 강서구 발산동)"] },
+    ],
+  },
+  {
+    year: "2018",
+    entries: [{ month: "12", lines: ["Air India CSA 계약"] }],
+  },
+  {
+    year: "2017",
+    entries: [
+      {
+        month: "05",
+        lines: ["회사 설립", "(서울 마포구 망원동)", "국제물류주선업 등록"],
+      },
+      { month: "07", lines: ["IATA 가입 등록"] },
+    ],
   },
 ];
 export default function AboutPage() {
@@ -62,11 +109,47 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section
-        id="history"
-        className="flex min-h-screen w-full  items-center justify-center bg-white"
-      >
-        <h1 className="text-3xl font-bold text-gray-900">연혁</h1>
+      <section id="history" className=" min-h-screen w-full   bg-white">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-32 py-14 lg:grid-cols-2 ">
+          <div className="lg:sticky lg:top-24 lg:h-fit lg:self-start">
+            <div className="relative h-[320px] w-full overflow-hidden rounded-2xl shadow-lg lg:h-[640px]">
+              <Image
+                src="/연혁.jpg"
+                alt="비오로지스틱스 수상 이력"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-16">
+            {timeline.map((block) => (
+              <div key={block.year}>
+                <h3 className="mb-6 text-4xl font-bold text-gray-900">
+                  {block.year}
+                </h3>
+
+                <div className="flex flex-col gap-5">
+                  {block.entries.length === 0 && (
+                    <p className="text-sm text-gray-400">-</p>
+                  )}
+                  {block.entries.map((entry, i) => (
+                    <div key={i} className="flex gap-6">
+                      <span className="w-8 shrink-0 text-sm font-bold text-[#1688CA]">
+                        {entry.month}
+                      </span>
+                      <div className="text-sm leading-relaxed text-gray-700">
+                        {entry.lines.map((line, j) => (
+                          <p key={j}>{line}</p>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section
