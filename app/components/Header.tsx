@@ -69,6 +69,9 @@ export default function Header() {
       const target = document.getElementById(hash);
       if (!target) return;
 
+      // 해시 누적(/about#ceo#network) 방지 — 항상 단일 해시로 유지
+      history.replaceState(null, "", `${path}#${hash}`);
+
       if (window.__lenis) {
         window.__lenis.scrollTo(target, { offset: -HEADER_OFFSET });
       } else {

@@ -11,6 +11,11 @@ declare global {
 
 export default function SmoothScroll() {
   useEffect(() => {
+    // 브라우저 native 스크롤 복원이 Lenis와 충돌하지 않도록 수동 모드로 전환
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
     const lenis = new Lenis({
       duration: 2,
       easing: (t) => 1 - Math.pow(1 - t, 4),
@@ -20,6 +25,9 @@ export default function SmoothScroll() {
     });
 
     window.__lenis = lenis;
+
+    // 초기 레이아웃 확정 후 스크롤 한계를 다시 계산 (마운트 경쟁으로 인한 짧은 한계 방지)
+    const resizeRaf = requestAnimationFrame(() => lenis.resize());
 
     let active = true;
     let rafId: number;
@@ -33,6 +41,7 @@ export default function SmoothScroll() {
     return () => {
       active = false;
       cancelAnimationFrame(rafId);
+      cancelAnimationFrame(resizeRaf);
       lenis.destroy();
       if (window.__lenis === lenis) {
         window.__lenis = undefined;
