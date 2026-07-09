@@ -1,26 +1,40 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { HEADER_OFFSET } from "../lib/scroll";
 
 const MENUS = [
   {
     title: "About Us",
-    items: ["CEO 인사말", "비전 및 핵심가치", "연혁", "글로벌 네트워크"],
+    items: [
+      { label: "CEO 인사말", href: "/about#ceo" },
+      { label: "비전 및 핵심가치", href: "/about#vision" },
+      { label: "연혁", href: "/about#history" },
+      { label: "글로벌 네트워크", href: "/about#network" },
+    ],
   },
   {
     title: "Business",
-    items: ["항공 운송", "해상 운송", "특수/신선 화물", "통관 및 창고 보관"],
+    items: [
+      { label: "항공 운송", href: "/business/air" },
+      { label: "해상 운송", href: "/business/sea" },
+      { label: "내륙 운송", href: "/business/inland" },
+      { label: "통관 및 창고 보관", href: "/business/warehouse" },
+    ],
   },
   {
     title: "Support",
-    items: ["지점 안내"],
+    items: [{ label: "지점 안내", href: "#" }],
   },
 ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     let mounted = true;
@@ -39,7 +53,28 @@ export default function Header() {
     };
   }, []);
 
-  const isLight = scrolled || isOpen;
+  const isLight = pathname !== "/" || scrolled || isOpen;
+
+  const handleItemClick =
+    (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+      setIsOpen(false);
+
+      const [path, hash] = href.split("#");
+      if (!hash) return;
+
+      const isSamePage = path === pathname;
+      if (!isSamePage) return;
+
+      e.preventDefault();
+      const target = document.getElementById(hash);
+      if (!target) return;
+
+      if (window.__lenis) {
+        window.__lenis.scrollTo(target, { offset: -HEADER_OFFSET });
+      } else {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    };
 
   return (
     <header
@@ -114,13 +149,14 @@ export default function Header() {
                 className="flex w-32 flex-col items-center gap-4"
               >
                 {menu.items.map((item) => (
-                  <a
-                    key={item}
-                    href="#"
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={handleItemClick(item.href)}
                     className="whitespace-nowrap text-base font-medium text-gray-600 transition-colors hover:text-[#1688CA]"
                   >
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 ))}
               </div>
             ))}
