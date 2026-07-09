@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import FadeIn from "../FadeIn";
+import ScrollDownIndicator from "../ScrollDownIndicator";
 import Stagger from "../Stagger";
 
 const PHOTO_BOX_CLASS = "h-[280px] w-[380px] lg:h-[390px] lg:w-[540px]";
@@ -220,6 +221,9 @@ export default function CeoHero() {
             </div>
           </FadeIn>
         </div>
+
+        {growProgress === 0 && <ScrollDownIndicator variant="dark" />}
+        {growProgress > 0.85 && <ScrollDownIndicator />}
       </div>
     </div>
   );
