@@ -1,7 +1,27 @@
+import BusinessContent from "./components/hero/BusinessContent";
+import BusinessIntro from "./components/hero/BusinessIntro";
+import NetworkSection from "./components/hero/NetworkSection";
+
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center">
-      <main className="flex w-full max-w-3xl flex-1 flex-col items-center justify-center px-16 py-32" />
+    <div className="flex flex-1 flex-col">
+      <section className="relative h-screen w-full overflow-hidden">
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src="/test.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black/50 to-transparent" />
+      </section>
+
+      <BusinessIntro />
+
+      <NetworkSection />
+
+      <BusinessContent />
     </div>
   );
 }
