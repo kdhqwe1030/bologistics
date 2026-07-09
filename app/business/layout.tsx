@@ -30,7 +30,7 @@ export default function BusinessLayout({
   const pathname = usePathname();
 
   return (
-    <main className="min-h-screen bg-white pt-24">
+    <main className="min-h-screen bg-white pt-12">
       {/* 탭바 영역 */}
       <section className="mx-auto mt-16 w-full max-w-7xl px-6 lg:px-12">
         <nav className="flex border-b border-gray-200">
@@ -60,7 +60,7 @@ export default function BusinessLayout({
       </section>
 
       {/* 각 페이지 내용 */}
-      <section className="mx-auto w-full max-w-7xl px-6 py-20 lg:px-12">
+      <section className="mx-auto w-full max-w-7xl lg:px-12">
         {children}
       </section>
     </main>
