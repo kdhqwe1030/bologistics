@@ -97,9 +97,16 @@ export default function CeoHero() {
     <div
       id="ceo"
       ref={pinRef}
-      className="relative w-full scroll-mt-20"
+      className="relative w-full "
       style={{ height: "300vh" }}
     >
+      <div
+        id="vision"
+        aria-hidden
+        className="absolute left-0 w-full "
+        style={{ top: "100vh", scrollMarginTop: "-80px" }}
+      />
+
       <div className="sticky top-0 flex h-screen w-full items-center overflow-hidden bg-white pt-16">
         <div className="grid w-full grid-cols-1 lg:grid-cols-[48%_52%]">
           <div
@@ -162,7 +169,7 @@ export default function CeoHero() {
                 className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center text-white"
                 style={{ opacity: overlayOpacity }}
               >
-                <span className="text-lg mb-6 font-semibold  text-[#4FB6EE]">
+                <span className=" mb-6 font-semibold  text-[#4FB6EE]">
                   Beginning and Over
                 </span>
                 {growProgress > 0.92 && (

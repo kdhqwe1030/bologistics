@@ -26,10 +26,7 @@ export default function AboutPage() {
     <div className="flex w-full flex-col">
       <CeoHero />
 
-      <section
-        id="vision"
-        className="flex w-full scroll-mt-20 flex-col items-center bg-gray-50"
-      >
+      <section className="flex w-full flex-col items-center bg-gray-50">
         <div className="relative flex w-full items-center justify-center overflow-hidden py-32">
           <BackgroundVideo
             className="absolute inset-0 h-full w-full object-cover"
