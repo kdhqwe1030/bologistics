@@ -13,11 +13,11 @@ const services = [
     href: "/business/air",
   },
   {
-    tag: "Marine Transport",
+    tag: "Sea Transport",
     title: "해상 운송",
     desc: "경쟁력 있는 해상 운임과 글로벌 네트워크로 안전하고 신속한 화물 운송을 제공합니다.",
     img: "/3d일러스트/해상.webp",
-    href: "/business/marine",
+    href: "/business/sea",
   },
   {
     tag: "Inland Transport",
