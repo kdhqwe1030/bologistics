@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { HandHelping, Share2, Timer } from "lucide-react";
 import BackgroundVideo from "../components/BackgroundVideo";
+import CeoHero from "../components/CeoHero";
 const philosophyItems = [
   {
     icon: Share2,
@@ -24,57 +24,12 @@ const philosophyItems = [
 export default function AboutPage() {
   return (
     <div className="flex w-full flex-col">
-      <section id="ceo" className="w-full scroll-mt-20 bg-white pb-20 pt-16">
-        <div className="grid w-full grid-cols-1 lg:grid-cols-[48%_52%]">
-          <div className="flex flex-col justify-center py-16 pl-6 pr-6 lg:py-8 lg:pl-48 lg:pr-4">
-            <div className="max-w-xl">
-              <span className="mb-4 inline-block text-sm font-semibold tracking-[0.3em] text-[#1688CA]">
-                CEO GREETING
-              </span>
-              <h2 className="mb-8 text-3xl font-bold text-gray-900 md:text-4xl">
-                대표 인사말
-              </h2>
-
-              <div className="mb-8 h-0.5 w-16 bg-[#1688CA]" />
-
-              <p className="mb-6 text-base leading-loose text-gray-600">
-                비오로지스틱스는 국내외 항공운송서비스뿐만 아니라 물류단계별
-                연계서비스에 이르기까지 고객이 필요로 하는 맞춤형 종합
-                물류솔루션을 제공하는 종합물류회사입니다.
-              </p>
-
-              <p className="text-base leading-loose text-gray-600">
-                주요 항공사들과의 전략적 제휴를 통해 시장에서 고객사가 최적의
-                물류활동을 구현할 수 합리적 운임과 연중 안정적인 화물운송
-                확보하여 최선의 서비스를 제공하여 드릴 것입니다.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center py-12 lg:justify-start lg:py-16 lg:pl-20">
-            <div className="relative h-[280px] w-[380px] lg:h-[390px] lg:w-[540px]">
-              <div className="absolute left-1/2 top-1/2 h-[323px] w-[240px] -translate-x-1/2 -translate-y-1/2 -rotate-90 overflow-hidden rounded-2xl shadow-lg lg:h-[540px] lg:w-[390px]">
-                <Image
-                  src="/ceo.webp"
-                  alt="비오로지스틱스 대표이사"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CeoHero />
 
       <section
         id="vision"
         className="flex w-full scroll-mt-20 flex-col items-center bg-gray-50"
       >
-        <div className="flex w-full items-center justify-center py-24">
-          <h1 className="text-3xl font-bold text-gray-900">비전</h1>
-        </div>
-
         <div className="relative flex w-full items-center justify-center overflow-hidden py-32">
           <BackgroundVideo
             className="absolute inset-0 h-full w-full object-cover"
