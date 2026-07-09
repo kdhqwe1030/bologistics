@@ -109,10 +109,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="history" className=" min-h-screen w-full   bg-white">
-        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-32 py-14 lg:grid-cols-2 ">
+      <section id="history" className=" min-h-screen w-full  bg-white">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 justify-between gap-36 py-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:px-4 ">
           <div className="lg:sticky lg:top-24 lg:h-fit lg:self-start">
-            <div className="relative h-[320px] w-full overflow-hidden rounded-2xl shadow-lg lg:h-[640px]">
+            <div className="relative h-[320px] w-full overflow-hidden rounded-2xl shadow-lg lg:h-[800px]">
               <Image
                 src="/연혁.jpg"
                 alt="비오로지스틱스 수상 이력"
@@ -122,29 +122,37 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-16">
-            {timeline.map((block) => (
-              <div key={block.year}>
-                <h3 className="mb-6 text-4xl font-bold text-gray-900">
-                  {block.year}
-                </h3>
+          <div className="relative flex flex-col gap-16">
+            <div className="absolute bottom-2 left-5 top-2 w-px bg-gray-200" />
 
-                <div className="flex flex-col gap-5">
-                  {block.entries.length === 0 && (
-                    <p className="text-sm text-gray-400">-</p>
-                  )}
-                  {block.entries.map((entry, i) => (
-                    <div key={i} className="flex gap-6">
-                      <span className="w-8 shrink-0 text-sm font-bold text-[#1688CA]">
-                        {entry.month}
-                      </span>
-                      <div className="text-sm leading-relaxed text-gray-700">
-                        {entry.lines.map((line, j) => (
-                          <p key={j}>{line}</p>
-                        ))}
+            {timeline.map((block) => (
+              <div key={block.year} className="flex gap-6">
+                <div className="flex w-10 shrink-0 justify-center pt-2">
+                  <span className="h-3 w-3 rounded-full border-2 border-[#1688CA] bg-white" />
+                </div>
+
+                <div className="flex-1">
+                  <h3 className="mb-6 text-4xl font-bold text-gray-900">
+                    {block.year}
+                  </h3>
+
+                  <div className="flex flex-col gap-5">
+                    {block.entries.length === 0 && (
+                      <p className="text-sm text-gray-400">-</p>
+                    )}
+                    {block.entries.map((entry, i) => (
+                      <div key={i} className="flex gap-6">
+                        <span className="w-8 shrink-0 text-sm font-bold text-[#1688CA]">
+                          {entry.month}
+                        </span>
+                        <div className="text-sm leading-relaxed text-gray-700">
+                          {entry.lines.map((line, j) => (
+                            <p key={j}>{line}</p>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
