@@ -8,7 +8,7 @@ export default function Home() {
       <section className="relative h-screen w-full overflow-hidden">
         <video
           className="absolute inset-0 h-full w-full object-cover"
-          src="/test.mp4"
+          src="/mainbackground.mp4"
           autoPlay
           muted
           loop
