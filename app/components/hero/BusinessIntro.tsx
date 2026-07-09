@@ -70,7 +70,7 @@ export default function BusinessIntro() {
 
         <FadeIn
           direction="right"
-          className="relative flex min-h-[520px] items-center justify-center overflow-visible py-12 lg:min-h-[680px] lg:py-16"
+          className="relative flex min-h-[520px] items-center justify-center overflow-visible py-12 lg:min-h-[680px] lg:py-16 mr-24"
         >
           <div className="relative h-[520px] w-[110%] max-w-none lg:h-[550px] lg:w-[120%]">
             <Image
