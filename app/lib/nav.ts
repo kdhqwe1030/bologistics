@@ -11,8 +11,8 @@ export const MENUS = [
   {
     title: "Business",
     items: [
-      { label: "항공 운송", href: "/business/air" },
-      { label: "항공 차터", href: "/business/air-charter" },
+      { label: "항공 일반/위험품", href: "/business/air" },
+      { label: "항공 차터운용", href: "/business/air-charter" },
     ],
   },
   {

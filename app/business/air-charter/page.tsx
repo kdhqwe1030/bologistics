@@ -37,9 +37,9 @@ export default function AirCharterSection() {
                 AIR CHARTER
               </span>
               <h2 className="mb-8 text-2xl font-bold leading-relaxed text-gray-900 md:text-3xl">
-                대량·긴급 화물을 위한
+                대량·긴급 화물을 위한 맞춤형
                 <br />
-                맞춤형 항공 화물기 차터 서비스를 제공합니다.
+                항공 화물기 차터 서비스를 제공합니다.
               </h2>
 
               <div className="mb-8 h-0.5 w-16 bg-[#1688CA]" />
@@ -48,25 +48,24 @@ export default function AirCharterSection() {
             <Stagger step={0.12}>
               <FadeIn direction="left">
                 <p className="mb-6 text-base leading-loose text-gray-600">
-                  비오로지스틱스는 정기 항공편만으로 대응이 어려운 대량
-                  화물, 긴급 화물을 위해 화물기 전세(차터) 운항 서비스를
-                  제공합니다.
+                  비오로지스틱스는 정기 항공편만으로 대응이 어려운 대량 화물,
+                  긴급 화물을 위해 화물기 전세(차터) 운항 서비스를 제공합니다.
                 </p>
               </FadeIn>
 
               <FadeIn direction="left">
                 <p className="mb-6 text-base leading-loose text-gray-600">
                   고객의 화물량과 일정에 맞춰 기종 선정, 노선 설계, 운항
-                  횟수까지 맞춤형으로 구성하며, B747 등 대형 화물기 차터
-                  운용 경험을 바탕으로 안정적인 운항을 지원합니다.
+                  횟수까지 맞춤형으로 구성하며, B747 등 대형 화물기 차터 운용
+                  경험을 바탕으로 안정적인 운항을 지원합니다.
                 </p>
               </FadeIn>
 
               <FadeIn direction="left">
                 <p className="text-base leading-loose text-gray-600">
                   예약, 운항 스케줄 조율, 통관, 도착지 연계까지 전 과정을
-                  체계적으로 관리하여 고객의 화물이 원하는 시점에 정확히
-                  도착할 수 있도록 지원합니다.
+                  체계적으로 관리하여 고객의 화물이 원하는 시점에 정확히 도착할
+                  수 있도록 지원합니다.
                 </p>
               </FadeIn>
             </Stagger>
