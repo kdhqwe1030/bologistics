@@ -1,8 +1,8 @@
 import { HandHelping, Share2, Timer } from "lucide-react";
 import BackgroundVideo from "../components/BackgroundVideo";
 import CeoHero from "../components/about/CeoHero";
-import GlobalNetwork from "../components/about/GlobalNetwork";
 import History from "../components/about/History";
+import OrgChart from "../components/about/OrgChart";
 import FadeIn from "../components/FadeIn";
 import Stagger from "../components/Stagger";
 
@@ -80,7 +80,7 @@ export default function AboutPage() {
 
       <History />
 
-      <GlobalNetwork />
+      <OrgChart />
     </div>
   );
 }

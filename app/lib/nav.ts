@@ -5,7 +5,7 @@ export const MENUS = [
       { label: "CEO 인사말", href: "/about#ceo" },
       { label: "비전 및 핵심가치", href: "/about#vision" },
       { label: "연혁", href: "/about#history" },
-      { label: "글로벌 네트워크", href: "/about#network" },
+      { label: "조직도", href: "/about#org-chart" },
     ],
   },
   {
@@ -19,6 +19,6 @@ export const MENUS = [
   },
   {
     title: "Support",
-    items: [{ label: "지점 안내", href: "/support" }],
+    items: [{ label: "채용 안내", href: "/support" }],
   },
 ] as const;
