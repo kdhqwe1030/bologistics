@@ -16,7 +16,7 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "비오로지스틱스",
+  title: "비오 로지스틱스(주)",
   description: "",
 };
 
@@ -26,10 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="ko"
-      className={`${pretendard.variable} h-full antialiased`}
-    >
+    <html lang="ko" className={`${pretendard.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <IntroSplash />
         <SmoothScroll />
