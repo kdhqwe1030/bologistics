@@ -3,11 +3,38 @@ import FadeIn from "../FadeIn";
 
 const timeline = [
   {
+    year: "2025",
+    entries: [
+      { month: "06", lines: ["CARGOLUX (CV)", "대리점 계약"] },
+      { month: "08", lines: ["AIR ZETA (KJ)", "대리점 계약"] },
+    ],
+  },
+  {
+    year: "2024",
+    entries: [
+      { month: "02", lines: ["KALITA AIR (K4)", "B747-400F ORD 차터 1대 운용"] },
+      {
+        month: "04-06",
+        lines: ["NATIONAL AIR (N8)", "B747-400F ATL 차터 10대 운용"],
+      },
+      { month: "05", lines: ["ATLAS AIR (5Y)", "B747-800F ORD 차터 1대 운용"] },
+    ],
+  },
+  {
+    year: "2023",
+    entries: [
+      {
+        month: "09",
+        lines: ["인천국제공항 신규 화물터미널", "개발 사업 주주사로 참여"],
+      },
+    ],
+  },
+  {
     year: "2022",
     entries: [
       {
         month: "07",
-        lines: ["대한항공 대리점 계약", "동남아행 물량 약정 시행"],
+        lines: ["KOREAN AIR (KE) 대리점 계약", "동남아행 물량 약정 시행"],
       },
       { month: "07", lines: ["기업부설연구소 개설", "(인정번호 2022113315)"] },
     ],
@@ -21,18 +48,28 @@ const timeline = [
     entries: [
       { month: "01", lines: ["특송업체 인증", "(인천세관장)"] },
       { month: "04", lines: ["벤처기업 인증등록"] },
-      { month: "12", lines: ["LA향 B747화물기", "Half Charter 운영(26편)"] },
+      {
+        month: "12",
+        lines: ["미주 화물기 차터", "B747-400F LAX HALF 운용(26편)"],
+      },
     ],
   },
   {
     year: "2019",
     entries: [
-      { month: "05", lines: ["신규 사무실 이전", "(서울 강서구 발산동)"] },
+      {
+        month: "05",
+        lines: [
+          "사무실 현사무실 이전",
+          "(서울 강서구 공항대로 237, 1310호)",
+          "(마곡동, 에이스타워)",
+        ],
+      },
     ],
   },
   {
     year: "2018",
-    entries: [{ month: "12", lines: ["Air India CSA 계약"] }],
+    entries: [{ month: "12", lines: ["AIR INDIA (AI) CSA 계약"] }],
   },
   {
     year: "2017",
@@ -42,6 +79,7 @@ const timeline = [
         lines: ["회사 설립", "(서울 마포구 망원동)", "국제물류주선업 등록"],
       },
       { month: "07", lines: ["IATA 가입 등록"] },
+      { month: "07", lines: ["ASIANA AIR (OZ)", "대리점 계약"] },
     ],
   },
 ];
