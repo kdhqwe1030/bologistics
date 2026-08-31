@@ -10,16 +10,8 @@ const TABS = [
     href: "/business/air",
   },
   {
-    label: "해상 운송",
-    href: "/business/sea",
-  },
-  {
-    label: "내륙 운송",
-    href: "/business/inland",
-  },
-  {
-    label: "통관 및 창고 보관",
-    href: "/business/warehouse",
+    label: "항공 차터",
+    href: "/business/air-charter",
   },
 ];
 
