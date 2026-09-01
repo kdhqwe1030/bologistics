@@ -1,6 +1,6 @@
 import { HandHelping, Share2, Timer } from "lucide-react";
 import BackgroundVideo from "../components/BackgroundVideo";
-import CeoHero from "../components/about/CeoHero";
+import Vision from "../components/about/Vision";
 import History from "../components/about/History";
 import OrgChart from "../components/about/OrgChart";
 import FadeIn from "../components/FadeIn";
@@ -30,7 +30,7 @@ const philosophyItems = [
 export default function AboutPage() {
   return (
     <div className="flex w-full flex-col">
-      <CeoHero />
+      <Vision />
 
       <section className="flex w-full flex-col items-center bg-gray-50">
         <div className="relative flex w-full items-center justify-center overflow-hidden py-32">
