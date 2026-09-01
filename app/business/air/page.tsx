@@ -48,24 +48,24 @@ export default function AirSection() {
             <Stagger step={0.12}>
               <FadeIn direction="left">
                 <p className="mb-6 text-base leading-loose text-gray-600">
-                  비오로지스틱스는 긴급성과 정시성이 중요한 화물을 위해
-                  신속하고 안정적인 항공 운송 서비스를 제공합니다.
+                  비오로지스틱스는 긴급성과 정시성이 중요한 화물을 위해 신속하고
+                  안정적인 항공 운송 서비스를 제공합니다.
                 </p>
               </FadeIn>
 
               <FadeIn direction="left">
                 <p className="mb-6 text-base leading-loose text-gray-600">
-                  화물의 특성, 목적지, 운송 일정에 맞춰 최적의 항공
-                  스페이스를 확보하고, 예약부터 출고, 통관, 도착지 연계까지
-                  전 과정을 체계적으로 지원합니다.
+                  화물의 특성, 목적지, 운송 일정에 맞춰 최적의 항공 스페이스를
+                  확보하고, 예약부터 출고, 통관, 도착지 연계까지 전 과정을
+                  체계적으로 지원합니다.
                 </p>
               </FadeIn>
 
               <FadeIn direction="left">
                 <p className="text-base leading-loose text-gray-600">
-                  글로벌 항공 네트워크를 기반으로 고객의 화물이 빠르고
-                  안전하게 목적지에 도착할 수 있도록 효율적인 항공 물류
-                  솔루션을 제공합니다.
+                  글로벌 항공 네트워크를 기반으로 고객의 화물이 빠르고 안전하게
+                  목적지에 도착할 수 있도록 효율적인 항공 물류 솔루션을
+                  제공합니다.
                 </p>
               </FadeIn>
             </Stagger>

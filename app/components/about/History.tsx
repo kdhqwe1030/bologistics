@@ -87,7 +87,7 @@ const timeline = [
 export default function History() {
   return (
     <section id="history" className=" min-h-screen w-full  bg-white">
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 justify-between gap-36 py-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:px-4 ">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 justify-between gap-36 py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:px-4 ">
         <FadeIn
           direction="left"
           className="lg:sticky lg:top-24 lg:h-fit lg:self-start"
