@@ -102,18 +102,11 @@ export default function CeoHero() {
 
   return (
     <div
-      id="ceo"
+      id="vision"
       ref={pinRef}
       className="relative w-full "
       style={{ height: "300vh" }}
     >
-      <div
-        id="vision"
-        aria-hidden
-        className="absolute left-0 w-full "
-        style={{ top: "100vh", scrollMarginTop: "-80px" }}
-      />
-
       <div
         ref={stickyRef}
         className="sticky top-0 flex h-screen w-full items-center overflow-hidden bg-white pt-16"
@@ -138,16 +131,15 @@ export default function CeoHero() {
 
                 <FadeIn direction="left">
                   <p className="mb-6 text-base leading-loose text-gray-600">
-                    비오로지스틱스는 국내외 항공운송서비스뿐만 아니라
-                    물류단계별 연계서비스에 이르기까지 고객이 필요로 하는
-                    맞춤형 종합 물류솔루션을 제공하는 종합물류회사입니다.
+                    비오로지스틱스는 국내외 항공운송서비스뿐만 아니라 물류단계별
+                    연계서비스에 이르기까지 고객이 필요로 하는 맞춤형 종합
+                    물류솔루션을 제공하는 종합물류회사입니다.
                   </p>
 
                   <p className="text-base leading-loose text-gray-600">
                     주요 항공사들과의 전략적 제휴를 통해 시장에서 고객사가
                     최적의 물류활동을 구현할 수 합리적 운임과 연중 안정적인
-                    화물운송 확보하여 최선의 서비스를 제공하여 드릴
-                    것입니다.
+                    화물운송 확보하여 최선의 서비스를 제공하여 드릴 것입니다.
                   </p>
                 </FadeIn>
               </Stagger>

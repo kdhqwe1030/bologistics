@@ -2,7 +2,6 @@ export const MENUS = [
   {
     title: "About Us",
     items: [
-      { label: "CEO 인사말", href: "/about#ceo" },
       { label: "비전 및 핵심가치", href: "/about#vision" },
       { label: "연혁", href: "/about#history" },
       { label: "조직도", href: "/about#org-chart" },
