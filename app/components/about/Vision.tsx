@@ -8,19 +8,23 @@ import Stagger from "../Stagger";
 
 const PHOTO_BOX_CLASS = "h-[280px] w-[380px] lg:h-[390px] lg:w-[540px]";
 
-const MESSAGE_A = ['" 시작을 마지막처럼', '마지막을 처음과 같은 마음으로 "'];
+// const MESSAGE_A = ['" 시작을 마지막처럼', '마지막을 처음과 같은 마음으로 "'];
+// const MESSAGE_B = [
+//   '" 언제나 초심을 지향하는',
+//   '비오로지스틱스의 믿음이 담겨 있습니다. "',
+// ];
+const MESSAGE_A = ['" 처음 시작할 때 마지막이라는 마음으로 "'];
 const MESSAGE_B = [
-  '" 언제나 초심을 지향하는',
-  '비오로지스틱스의 믿음이 담겨 있습니다. "',
+  '" 비오의 끝은 항상 다시 처음이고',
+  '항상 초심을 유지하겠습니다 "',
 ];
-
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
 }
 
 type Rect = { left: number; top: number; width: number; height: number };
 
-export default function CeoHero() {
+export default function Vision() {
   const pinRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
   const photoRef = useRef<HTMLDivElement>(null);
@@ -102,18 +106,11 @@ export default function CeoHero() {
 
   return (
     <div
-      id="ceo"
+      id="vision"
       ref={pinRef}
       className="relative w-full "
       style={{ height: "300vh" }}
     >
-      <div
-        id="vision"
-        aria-hidden
-        className="absolute left-0 w-full "
-        style={{ top: "100vh", scrollMarginTop: "-80px" }}
-      />
-
       <div
         ref={stickyRef}
         className="sticky top-0 flex h-screen w-full items-center overflow-hidden bg-white pt-16"
@@ -127,27 +124,31 @@ export default function CeoHero() {
               <Stagger step={0.15}>
                 <FadeIn direction="left">
                   <span className="mb-4 inline-block text-sm font-semibold tracking-[0.3em] text-[#1688CA]">
-                    CEO GREETING
+                    BO LOGISTICS
                   </span>
                   <h2 className="mb-8 text-3xl font-bold text-gray-900 md:text-4xl">
-                    대표 인사말
+                    비오 가치와 비전
                   </h2>
-
                   <div className="mb-8 h-0.5 w-16 bg-[#1688CA]" />
                 </FadeIn>
 
                 <FadeIn direction="left">
                   <p className="mb-6 text-base leading-loose text-gray-600">
-                    비오로지스틱스는 국내외 항공운송서비스뿐만 아니라
-                    물류단계별 연계서비스에 이르기까지 고객이 필요로 하는
-                    맞춤형 종합 물류솔루션을 제공하는 종합물류회사입니다.
+                    비오는 Beginning and Over 의 약자로 시작과 끝의 영문 첫
+                    이니셜을 약자로 사용합니다.
+                  </p>
+
+                  <p className="mb-6 text-base leading-loose text-gray-600">
+                    처음 시작할 때 마지막이라는 마음으로, <br />
+                    마지막이라고 생각될 때처음 시작했을 때의 마음을 다시 한번
+                    생각합니다.
                   </p>
 
                   <p className="text-base leading-loose text-gray-600">
-                    주요 항공사들과의 전략적 제휴를 통해 시장에서 고객사가
-                    최적의 물류활동을 구현할 수 합리적 운임과 연중 안정적인
-                    화물운송 확보하여 최선의 서비스를 제공하여 드릴
-                    것입니다.
+                    시작과 마지막은 우리 모두 하나의 마음으로 하고 싶었던 모든
+                    것입니다. <br />
+                    비오의 끝은 항상 다시 처음이고, 항공 물류 사업에 처음 도전할
+                    때의 마음을 잊지 않고 항상 초심을 유지하겠습니다.
                   </p>
                 </FadeIn>
               </Stagger>
@@ -203,13 +204,19 @@ export default function CeoHero() {
                     key={showSecondMessage ? "b" : "a"}
                     direction="none"
                     duration={1.5}
-                    className="flex flex-col gap-3 text-xl font-bold leading-relaxed md:text-xl"
+                    className="mx-auto flex w-[78%] flex-col gap-3 text-2xl font-bold leading-relaxed md:text-2xl"
                   >
                     {(showSecondMessage ? MESSAGE_B : MESSAGE_A).map(
-                      (line, index) => (
+                      (line, index, arr) => (
                         <div
                           key={index}
-                          className={index === 0 ? "text-left" : "text-right"}
+                          className={
+                            arr.length === 1
+                              ? "text-center"
+                              : index === 0
+                                ? "text-left"
+                                : "text-right"
+                          }
                         >
                           {line}
                         </div>

@@ -12,17 +12,17 @@ const features = [
   },
   {
     number: "02",
-    image: "/3d일러스트/항공.webp",
-    title: "항공 스페이스 확보",
+    image: "/3d일러스트/창고.webp",
+    title: "위험품 및 신선 화물 전문 운송",
     description:
-      "화물 일정과 목적지에 맞춰\n효율적인 항공 스페이스 확보를 지원합니다.",
+      "위험물, 신선식품 등 화물 특성에 맞는 항공 규정 준수, 검역 및\n안정적인 온도 관리 프로세스를 제공합니다.",
   },
   {
     number: "03",
-    image: "/3d일러스트/항공.webp",
-    title: "통관 및 도착지 연계",
+    image: "/3d일러스트/전체물류.webp",
+    title: "항공 화물 Door-to-Door 및 통관",
     description:
-      "예약, 선적, 통관, 도착지 운송까지\n항공 물류 전 과정을 체계적으로 관리합니다.",
+      "출발지 픽업부터 예약, 선적, 통관, 도착지 운송까지\n항공 물류 전 과정을 체계적으로 관리합니다.",
   },
 ];
 
@@ -48,24 +48,24 @@ export default function AirSection() {
             <Stagger step={0.12}>
               <FadeIn direction="left">
                 <p className="mb-6 text-base leading-loose text-gray-600">
-                  비오로지스틱스는 긴급성과 정시성이 중요한 화물을 위해
-                  신속하고 안정적인 항공 운송 서비스를 제공합니다.
+                  비오로지스틱스는 긴급성과 정시성이 중요한 화물을 위해 신속하고
+                  안정적인 항공 운송 서비스를 제공합니다.
                 </p>
               </FadeIn>
 
               <FadeIn direction="left">
                 <p className="mb-6 text-base leading-loose text-gray-600">
-                  화물의 특성, 목적지, 운송 일정에 맞춰 최적의 항공
-                  스페이스를 확보하고, 예약부터 출고, 통관, 도착지 연계까지
-                  전 과정을 체계적으로 지원합니다.
+                  화물의 특성, 목적지, 운송 일정에 맞춰 최적의 항공 스페이스를
+                  확보하고, 예약부터 출고, 통관, 도착지 연계까지 전 과정을
+                  체계적으로 지원합니다.
                 </p>
               </FadeIn>
 
               <FadeIn direction="left">
                 <p className="text-base leading-loose text-gray-600">
-                  글로벌 항공 네트워크를 기반으로 고객의 화물이 빠르고
-                  안전하게 목적지에 도착할 수 있도록 효율적인 항공 물류
-                  솔루션을 제공합니다.
+                  글로벌 항공 네트워크를 기반으로 고객의 화물이 빠르고 안전하게
+                  목적지에 도착할 수 있도록 효율적인 항공 물류 솔루션을
+                  제공합니다.
                 </p>
               </FadeIn>
             </Stagger>

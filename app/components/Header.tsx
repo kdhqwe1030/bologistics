@@ -51,22 +51,22 @@ export default function Header() {
       onMouseLeave={() => setIsOpen(false)}
     >
       {/* 상단 메인 헤더 */}
-      <div className="relative z-10 grid w-full grid-cols-[280px_1fr_280px] items-center px-6 py-3 lg:px-48">
+      <div className="relative z-10 grid w-full grid-cols-[280px_1fr_280px] items-center px-6 py-2 lg:px-48">
         {/* 로고 영역 - 왼쪽 정렬 */}
         <a href="/" className="justify-self-start flex items-center gap-1">
           <Image
             src="/투명로고.webp"
             alt="비오로지스틱스 로고"
-            width={40}
-            height={40}
-            className="h-12 w-12 object-contain"
+            width={64}
+            height={64}
+            className="h-16 w-16 object-cover"
           />
           <span
-            className={`text-xl font-bold tracking-wide transition-colors duration-300 ${
+            className={`text font-bold tracking-wide transition-colors duration-300 ${
               isLight ? "text-gray-800" : "text-white"
             }`}
           >
-            비오로지스틱스
+            비오 로지스틱스(주)
           </span>
         </a>
         {/* 1뎁스 메뉴 영역 - 중앙 정렬 */}

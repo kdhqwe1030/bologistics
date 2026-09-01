@@ -7,31 +7,17 @@ import { useInView } from "../../hooks/useInView";
 const services = [
   {
     tag: "Air Transport",
-    title: "항공 운송",
+    title: "항공 일반/위험품",
     desc: "주요 항공사와의 전략적 제휴를 통해 합리적 운임과 안정적인 화물 스페이스를 확보합니다.",
     img: "/3d일러스트/항공.webp",
     href: "/business/air",
   },
   {
-    tag: "Sea Transport",
-    title: "해상 운송",
-    desc: "경쟁력 있는 해상 운임과 글로벌 네트워크로 안전하고 신속한 화물 운송을 제공합니다.",
-    img: "/3d일러스트/해상.webp",
-    href: "/business/sea",
-  },
-  {
-    tag: "Inland Transport",
-    title: "내륙 운송",
-    desc: "국내외 내륙 운송으로 최종 목적지까지 Door-to-Door 종합 대행 서비스를 제공합니다.",
-    img: "/3d일러스트/내륙운송.webp",
-    href: "/business/inland",
-  },
-  {
-    tag: "Warehouse",
-    title: "창고",
-    desc: "냉장·냉동 창고 운영부터 보관, 재고 관리까지 체계적인 물류 보관 솔루션을 제공합니다.",
-    img: "/3d일러스트/창고.webp",
-    href: "/business/warehouse",
+    tag: "Air Charter",
+    title: "항공 차터운용",
+    desc: "대량·긴급 화물을 위한 화물기 전세 운항으로 맞춤형 항공 물류 솔루션을 제공합니다.",
+    img: "/3d일러스트/항공차터.webp",
+    href: "/business/air-charter",
   },
 ];
 

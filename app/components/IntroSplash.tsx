@@ -6,7 +6,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 const STORAGE_KEY = "bio-intro-shown";
 const HOLD_MS = 1700;
 const FADE_MS = 500;
-const NAME_CHARS = Array.from("비오로지스틱스");
+const NAME_CHARS = Array.from("비오로지스틱스(주)");
 
 const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : () => {};
@@ -63,9 +63,9 @@ export default function IntroSplash() {
           <Image
             src="/투명로고.webp"
             alt="비오로지스틱스"
-            width={120}
-            height={120}
-            className="h-16 w-16 object-contain md:h-20 md:w-20"
+            width={160}
+            height={160}
+            className="h-28 w-28 object-cover md:h-28 md:w-28"
             priority
           />
         </div>
@@ -74,7 +74,7 @@ export default function IntroSplash() {
           {NAME_CHARS.map((char, index) => (
             <span
               key={index}
-              className="inline-block text-2xl font-bold tracking-wide text-white transition-all duration-1400 ease-out md:text-3xl"
+              className="inline-block text-xl font-bold tracking-wide text-white transition-all duration-1400 ease-out md:text-3xl"
               style={{
                 opacity: entered ? 1 : 0,
                 transform: entered ? "translateX(0)" : "translateX(24px)",

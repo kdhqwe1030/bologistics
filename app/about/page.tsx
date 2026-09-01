@@ -1,8 +1,8 @@
 import { HandHelping, Share2, Timer } from "lucide-react";
 import BackgroundVideo from "../components/BackgroundVideo";
-import CeoHero from "../components/about/CeoHero";
-import GlobalNetwork from "../components/about/GlobalNetwork";
+import Vision from "../components/about/Vision";
 import History from "../components/about/History";
+import OrgChart from "../components/about/OrgChart";
 import FadeIn from "../components/FadeIn";
 import Stagger from "../components/Stagger";
 
@@ -30,7 +30,7 @@ const philosophyItems = [
 export default function AboutPage() {
   return (
     <div className="flex w-full flex-col">
-      <CeoHero />
+      <Vision />
 
       <section className="flex w-full flex-col items-center bg-gray-50">
         <div className="relative flex w-full items-center justify-center overflow-hidden py-32">
@@ -43,14 +43,13 @@ export default function AboutPage() {
 
           <div className="relative z-10 flex w-full max-w-full flex-col items-center px-28 text-center text-white">
             <FadeIn direction="top">
-              <p className="mb-8 text-sm  uppercase font-semibold tracking-[0.3em]">
+              <p className="mb-8 text-sm  uppercase font-semibold tracking-[0.3em] border-b-2 pb-2">
                 Service Philosophy
               </p>
-              <div className="mb-12 h-px w-16 bg-white/60" />
             </FadeIn>
 
             <FadeIn direction="none">
-              <p className="mb-48 font-serif text-4xl  text-white md:text-4xl">
+              <p className="mb-46 font-serif text-4xl  text-white md:text-4xl">
                 We will always find the way for your cargo
               </p>
             </FadeIn>
@@ -64,9 +63,7 @@ export default function AboutPage() {
                     className="flex flex-col items-center gap-8 px-18 py-10 md:py-0"
                   >
                     <Icon className="h-14 w-14 stroke-[1.5]" />
-                    <h3 className="text-3xl font-bold md:text-3xl">
-                      {title}
-                    </h3>
+                    <h3 className="text-3xl font-bold md:text-3xl">{title}</h3>
                     <div className="mt-4 w-full rounded bg-white/10 px-6 py-8 text-center text-lg leading-loose text-white/90 backdrop-blur-sm md:text-xl">
                       {description}
                     </div>
@@ -80,7 +77,7 @@ export default function AboutPage() {
 
       <History />
 
-      <GlobalNetwork />
+      <OrgChart />
     </div>
   );
 }

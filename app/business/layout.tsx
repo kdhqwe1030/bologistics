@@ -6,20 +6,12 @@ import FadeIn from "../components/FadeIn";
 
 const TABS = [
   {
-    label: "항공 운송",
+    label: "항공 일반/위험품",
     href: "/business/air",
   },
   {
-    label: "해상 운송",
-    href: "/business/sea",
-  },
-  {
-    label: "내륙 운송",
-    href: "/business/inland",
-  },
-  {
-    label: "통관 및 창고 보관",
-    href: "/business/warehouse",
+    label: "항공 차터운용",
+    href: "/business/air-charter",
   },
 ];
 
